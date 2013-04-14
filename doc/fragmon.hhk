@@ -1,0 +1,22 @@
+<ul>
+    <li> <object type="text/sitemap">
+            <param name="Name" value="Main Window">
+            <param name="Local" value="fragmon-view.html">
+         </object>
+    <li> <object type="text/sitemap">
+            <param name="Name" value="Running Scorebot">
+            <param name="Local" value="runscorebot.html">
+         </object>
+    <li> <object type="text/sitemap">
+            <param name="Name" value="Python Module">
+            <param name="Local" value="module.html">
+         </object>
+    <li> <object type="text/sitemap">
+            <param name="Name" value="Game Data Structures">
+            <param name="Local" value="gamedata.html">
+         </object>
+    <li> <object type="text/sitemap">
+            <param name="Name" value="Custom Scorebot">
+            <param name="Local" value="scorebot.html">
+         </object>
+</ul>

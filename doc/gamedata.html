@@ -1,0 +1,423 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=iso-8859-1">
+	<TITLE>Fragmon Game Data</TITLE>
+	<META NAME="GENERATOR" CONTENT="OpenOffice.org 1.1.3  (Linux)">
+	<META NAME="CREATED" CONTENT="20060322;23281800">
+	<META NAME="CHANGED" CONTENT="20060324;16415500">
+</HEAD>
+<BODY LANG="en-US" DIR="LTR">
+<P ALIGN=CENTER><FONT SIZE=5><B>Game Data Structures</B></FONT></P>
+<P ALIGN=LEFT STYLE="font-style: normal; font-weight: medium; text-decoration: none">
+<FONT SIZE=3>There are three structures (type objects) defined in the
+fragmon module for holding game data, Overview, Player, and Rule.
+Overview holds some basic stats for a game server, such as server IP,
+hostname, team colors and score, etc. Player and Rule describe a
+single player and rule var, respectively. Fragmon expects multiple
+Player and Rule objects to be in Python lists. All members listed
+below can be included in their class's constructor IE, <B>Player(name
+= &ldquo;fatbody&rdquo;, score=55, ping=33)</B></FONT></P>
+<P ALIGN=LEFT STYLE="font-style: normal; text-decoration: none"><BR><BR>
+</P>
+<DIV ID="overview" DIR="LTR">
+<A NAME="overview">
+	<P ALIGN=LEFT STYLE="font-style: normal; text-decoration: none"><FONT SIZE=4><B>Overview</B></FONT></P>
+	<P ALIGN=LEFT><SPAN STYLE="text-decoration: none">Most of the
+	Overview data appears in the <A HREF="fragmon-view.html#queryinfo">query
+	and competition</A> sections of the main <A HREF="fragmon-view.html">Fragmon
+	window</A>.</SPAN> Pay attention to the difference between the type
+	and mode members.</P>
+	<TABLE WIDTH=100% BORDER=1 CELLPADDING=4 CELLSPACING=3>
+		<COL WIDTH=38*>
+		<COL WIDTH=38*>
+		<COL WIDTH=180*>
+		<THEAD>
+			<TR VALIGN=TOP>
+				<TH WIDTH=15%>
+					<P>Member</P>
+				</TH>
+				<TH WIDTH=15%>
+					<P>Type</P>
+				</TH>
+				<TH WIDTH=70%>
+					<P>Description</P>
+				</TH>
+			</TR>
+		</THEAD>
+		<TBODY>
+			<TR VALIGN=TOP>
+				<TD WIDTH=15%>
+					<P ALIGN=LEFT>port</P>
+				</TD>
+				<TD WIDTH=15%>
+					<P ALIGN=LEFT>integer</P>
+				</TD>
+				<TD WIDTH=70%>
+					<P ALIGN=LEFT>Port of server</P>
+				</TD>
+			</TR>
+			<TR VALIGN=TOP>
+				<TD WIDTH=15%>
+					<P ALIGN=LEFT>server</P>
+				</TD>
+				<TD WIDTH=15%>
+					<P ALIGN=LEFT>string</P>
+				</TD>
+				<TD WIDTH=70%>
+					<P ALIGN=LEFT>Address of server</P>
+				</TD>
+			</TR>
+			<TR VALIGN=TOP>
+				<TD WIDTH=15%>
+					<P ALIGN=LEFT>ping</P>
+				</TD>
+				<TD WIDTH=15%>
+					<P ALIGN=LEFT>integer</P>
+				</TD>
+				<TD WIDTH=70%>
+					<P ALIGN=LEFT>Ping latency to server</P>
+				</TD>
+			</TR>
+			<TR VALIGN=TOP>
+				<TD WIDTH=15%>
+					<P ALIGN=LEFT>curplayers</P>
+				</TD>
+				<TD WIDTH=15%>
+					<P ALIGN=LEFT>integer</P>
+				</TD>
+				<TD WIDTH=70%>
+					<P ALIGN=LEFT>Current number of players</P>
+				</TD>
+			</TR>
+			<TR VALIGN=TOP>
+				<TD WIDTH=15%>
+					<P ALIGN=LEFT>maxplayers</P>
+				</TD>
+				<TD WIDTH=15%>
+					<P ALIGN=LEFT>integer</P>
+				</TD>
+				<TD WIDTH=70%>
+					<P ALIGN=LEFT>Maximum number of players</P>
+				</TD>
+			</TR>
+			<TR VALIGN=TOP>
+				<TD WIDTH=15%>
+					<P ALIGN=LEFT>password</P>
+				</TD>
+				<TD WIDTH=15%>
+					<P ALIGN=LEFT>boolean</P>
+				</TD>
+				<TD WIDTH=70%>
+					<P ALIGN=LEFT>Is server passworded? 
+					</P>
+				</TD>
+			</TR>
+			<TR VALIGN=TOP>
+				<TD WIDTH=15%>
+					<P ALIGN=LEFT>hostname</P>
+				</TD>
+				<TD WIDTH=15%>
+					<P ALIGN=LEFT>string</P>
+				</TD>
+				<TD WIDTH=70%>
+					<P ALIGN=LEFT>Hostname of server</P>
+				</TD>
+			</TR>
+			<TR VALIGN=TOP>
+				<TD WIDTH=15%>
+					<P ALIGN=LEFT>map</P>
+				</TD>
+				<TD WIDTH=15%>
+					<P ALIGN=LEFT>string</P>
+				</TD>
+				<TD WIDTH=70%>
+					<P ALIGN=LEFT>Name of current map</P>
+				</TD>
+			</TR>
+			<TR VALIGN=TOP>
+				<TD WIDTH=15%>
+					<P ALIGN=LEFT>type</P>
+				</TD>
+				<TD WIDTH=15%>
+					<P ALIGN=LEFT>string</P>
+				</TD>
+				<TD WIDTH=70%>
+					<P ALIGN=LEFT>Type of game (FFA/TEAM/DUAL/etc). This is shown
+					directly to the user without modification.</P>
+				</TD>
+			</TR>
+			<TR VALIGN=TOP>
+				<TD WIDTH=15%>
+					<P ALIGN=LEFT>mode</P>
+				</TD>
+				<TD WIDTH=15%>
+					<P ALIGN=LEFT>string</P>
+				</TD>
+				<TD WIDTH=70%>
+					<P ALIGN=LEFT>Again this refers to the type of game, but unlike
+					the type member, the mode member is used by Fragmon to determine
+					the game type. 
+					</P>
+					<P ALIGN=LEFT>Current values accepted are &ldquo;1v1&rdquo; and
+					&ldquo;team&rdquo;. In 1v1 mode, the names and scores of the
+					first players with teamid A and teamid B are inserted in place
+					of team names and scores in the competition section.</P>
+				</TD>
+			</TR>
+			<TR VALIGN=TOP>
+				<TD WIDTH=15%>
+					<P ALIGN=LEFT>mod</P>
+				</TD>
+				<TD WIDTH=15%>
+					<P ALIGN=LEFT>string</P>
+				</TD>
+				<TD WIDTH=70%>
+					<P ALIGN=LEFT>Name of the mod running on the server (OSP, Q4MAX,
+					etc)</P>
+				</TD>
+			</TR>
+			<TR VALIGN=TOP>
+				<TD WIDTH=15%>
+					<P ALIGN=LEFT>version</P>
+				</TD>
+				<TD WIDTH=15%>
+					<P ALIGN=LEFT>string</P>
+				</TD>
+				<TD WIDTH=70%>
+					<P ALIGN=LEFT>Version of the server</P>
+				</TD>
+			</TR>
+			<TR VALIGN=TOP>
+				<TD WIDTH=15%>
+					<P ALIGN=LEFT>time</P>
+				</TD>
+				<TD WIDTH=15%>
+					<P ALIGN=LEFT>string</P>
+				</TD>
+				<TD WIDTH=70%>
+					<P ALIGN=LEFT>The current time of the game</P>
+				</TD>
+			</TR>
+			<TR VALIGN=TOP>
+				<TD WIDTH=15%>
+					<P ALIGN=LEFT>teamAname</P>
+				</TD>
+				<TD WIDTH=15%>
+					<P ALIGN=LEFT>string</P>
+				</TD>
+				<TD WIDTH=70%>
+					<P ALIGN=LEFT>Name of the first team (Red)</P>
+				</TD>
+			</TR>
+			<TR VALIGN=TOP>
+				<TD WIDTH=15%>
+					<P ALIGN=LEFT>teamBname</P>
+				</TD>
+				<TD WIDTH=15%>
+					<P ALIGN=LEFT>string</P>
+				</TD>
+				<TD WIDTH=70%>
+					<P ALIGN=LEFT>Name of the second team (Blue)</P>
+				</TD>
+			</TR>
+			<TR VALIGN=TOP>
+				<TD WIDTH=15%>
+					<P ALIGN=LEFT>teamAscore</P>
+				</TD>
+				<TD WIDTH=15%>
+					<P ALIGN=LEFT>integer</P>
+				</TD>
+				<TD WIDTH=70%>
+					<P ALIGN=LEFT>Score of the first team</P>
+				</TD>
+			</TR>
+			<TR VALIGN=TOP>
+				<TD WIDTH=15%>
+					<P ALIGN=LEFT>teamBscore</P>
+				</TD>
+				<TD WIDTH=15%>
+					<P ALIGN=LEFT>integer</P>
+				</TD>
+				<TD WIDTH=70%>
+					<P ALIGN=LEFT>Score of the second team</P>
+				</TD>
+			</TR>
+			<TR VALIGN=TOP>
+				<TD WIDTH=15%>
+					<P ALIGN=LEFT>teamAcolor</P>
+				</TD>
+				<TD WIDTH=15%>
+					<P ALIGN=LEFT>24-bit int</P>
+				</TD>
+				<TD WIDTH=70%>
+					<P ALIGN=LEFT>Hex color of the first team (0xff0000)</P>
+				</TD>
+			</TR>
+			<TR VALIGN=TOP>
+				<TD WIDTH=15%>
+					<P ALIGN=LEFT>teamBcolor</P>
+				</TD>
+				<TD WIDTH=15%>
+					<P ALIGN=LEFT>24-bit int</P>
+				</TD>
+				<TD WIDTH=70%>
+					<P ALIGN=LEFT>Hex color of the second team (0x0000ff)</P>
+				</TD>
+			</TR>
+		</TBODY>
+	</TABLE>
+	<P ALIGN=LEFT><BR><BR>
+	</P>
+</DIV>
+<DIV ID="player" DIR="LTR">
+<A NAME="player">
+	<P ALIGN=LEFT><FONT SIZE=4><B>Player</B></FONT></P>
+	<P ALIGN=LEFT>Data for a single player. Most of this appears in the
+	<A HREF="fragmon-view.html#players">player list</A> in the main
+	<A HREF="fragmon-view.html">Fragmon window</A>.</P>
+	<TABLE WIDTH=100% BORDER=1 CELLPADDING=4 CELLSPACING=3>
+		<COL WIDTH=38*>
+		<COL WIDTH=38*>
+		<COL WIDTH=180*>
+		<THEAD>
+			<TR VALIGN=TOP>
+				<TH WIDTH=15%>
+					<P>Member</P>
+				</TH>
+				<TH WIDTH=15%>
+					<P>Type</P>
+				</TH>
+				<TH WIDTH=70%>
+					<P>Description</P>
+				</TH>
+			</TR>
+		</THEAD>
+		<TBODY>
+			<TR VALIGN=TOP>
+				<TD WIDTH=15%>
+					<P ALIGN=LEFT>name</P>
+				</TD>
+				<TD WIDTH=15%>
+					<P ALIGN=LEFT>string</P>
+				</TD>
+				<TD WIDTH=70%>
+					<P ALIGN=LEFT>Name of the player. This shouldn't have any color
+					information.</P>
+				</TD>
+			</TR>
+			<TR VALIGN=TOP>
+				<TD WIDTH=15%>
+					<P ALIGN=LEFT>score</P>
+				</TD>
+				<TD WIDTH=15%>
+					<P ALIGN=LEFT>int</P>
+				</TD>
+				<TD WIDTH=70%>
+					<P ALIGN=LEFT>Player's score</P>
+				</TD>
+			</TR>
+			<TR VALIGN=TOP>
+				<TD WIDTH=15%>
+					<P ALIGN=LEFT>ping</P>
+				</TD>
+				<TD WIDTH=15%>
+					<P ALIGN=LEFT>int</P>
+				</TD>
+				<TD WIDTH=70%>
+					<P ALIGN=LEFT>Player's ping</P>
+				</TD>
+			</TR>
+			<TR VALIGN=TOP>
+				<TD WIDTH=15%>
+					<P ALIGN=LEFT>team</P>
+				</TD>
+				<TD WIDTH=15%>
+					<P ALIGN=LEFT>string</P>
+				</TD>
+				<TD WIDTH=70%>
+					<P ALIGN=LEFT>Player's team name</P>
+				</TD>
+			</TR>
+			<TR VALIGN=TOP>
+				<TD WIDTH=15%>
+					<P ALIGN=LEFT>teamid</P>
+				</TD>
+				<TD WIDTH=15%>
+					<P ALIGN=LEFT>int</P>
+				</TD>
+				<TD WIDTH=70%>
+					<P ALIGN=LEFT>The team the player is playing in: 0 is team A, 1
+					team B, and anything else is team F (specs/other)</P>
+				</TD>
+			</TR>
+			<TR VALIGN=TOP>
+				<TD WIDTH=15%>
+					<P ALIGN=LEFT>id</P>
+				</TD>
+				<TD WIDTH=15%>
+					<P ALIGN=LEFT>int</P>
+				</TD>
+				<TD WIDTH=70%>
+					<P ALIGN=LEFT>Player's connection ID. Fragmon uses this to match
+					players when the user overrides teams in the <A HREF="fragmon-view.html#players">player
+					list</A></P>
+				</TD>
+			</TR>
+		</TBODY>
+	</TABLE>
+	<P ALIGN=LEFT><BR><BR>
+	</P>
+</DIV>
+<DIV ID="rule" DIR="LTR">
+<A NAME="rule">
+	<P ALIGN=LEFT><FONT SIZE=4><B>Rule</B></FONT></P>
+	<P ALIGN=LEFT>Data for a single rule. This appears in the <A HREF="fragmon-view.html#rules">rule
+	list</A> in the main <A HREF="fragmon-view.html">Fragmon window</A>.</P>
+	<TABLE WIDTH=100% BORDER=1 CELLPADDING=4 CELLSPACING=3>
+		<COL WIDTH=38*>
+		<COL WIDTH=38*>
+		<COL WIDTH=180*>
+		<THEAD>
+			<TR VALIGN=TOP>
+				<TH WIDTH=15%>
+					<P>Member</P>
+				</TH>
+				<TH WIDTH=15%>
+					<P>Type</P>
+				</TH>
+				<TH WIDTH=70%>
+					<P>Description</P>
+				</TH>
+			</TR>
+		</THEAD>
+		<TBODY>
+			<TR VALIGN=TOP>
+				<TD WIDTH=15%>
+					<P ALIGN=LEFT>key</P>
+				</TD>
+				<TD WIDTH=15%>
+					<P ALIGN=LEFT>string</P>
+				</TD>
+				<TD WIDTH=70%>
+					<P ALIGN=LEFT>Key of a rule</P>
+				</TD>
+			</TR>
+			<TR VALIGN=TOP>
+				<TD WIDTH=15%>
+					<P ALIGN=LEFT>value</P>
+				</TD>
+				<TD WIDTH=15%>
+					<P ALIGN=LEFT>string</P>
+				</TD>
+				<TD WIDTH=70%>
+					<P ALIGN=LEFT>Value of a rule</P>
+				</TD>
+			</TR>
+		</TBODY>
+	</TABLE>
+	<P ALIGN=LEFT STYLE="margin-bottom: 0in"><BR>
+	</P>
+</DIV>
+</BODY>
+</HTML>

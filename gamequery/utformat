@@ -1,0 +1,19 @@
+\x80                                                    <- game id
+\x00\x00\x00                                            <- fluff
+\x00                                                    <- query id
+
+\x00\x00\x00\x00                                        <- server id (fluff)
+\x00                                                    <- server ip (fluff)
+
+\xc6\x1b\x00\x00                                        <- game port 
+\x00\x00\x00\x00                                        <- query port (fluff)
+(jolt.co.uk - CTF 2 - DEMO - FaceClassic\x00            <- hostname str
+\x10CTF-FaceClassic\x00                                 <- mapname
+\txCTFGame\x00                                          <- gametype
+
+\x02\x00\x00\x00                                        <- numplayers
+\x0e\x00\x00\x00                                        <- maxplayers
+
+\x00\x00\x00\x00                                        <- ping (fluff)
+\x00\x00\x00\x00                                        <- server flags (fluff?)
+\x020\x00\x00\x00                                       <- skill or whatever

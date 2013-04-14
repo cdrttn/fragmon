@@ -1,0 +1,47 @@
+CPP = wxc.sh
+LD = wxl.sh
+RC = wxr.sh
+CFLAGS = /IC:/Python24/Include
+LDFLAGS = /LIBPATH:C:/Python24/Libs 
+DEBUG=1
+MKRELEASE = mkrelease.sh win32
+
+ifeq ($(DEBUG), 1)
+	XTRA = debug
+else
+ifeq ($(DEBUG), wrap)
+	XTRA = debug -DWRAPTEST
+endif
+endif
+
+OBJ = Fragmon.obj fragmon_wdr.obj pyemb.obj QueryInput.obj ServerEntry.obj \
+RuleListCtrl.obj DebugFrame.obj MainFrame.obj PlayerListCtrl.obj flipper.obj \
+fragmon.RES PassLock.obj varstr.obj ExecInput.obj ipcserv.obj OptionsDlg.obj \
+QueryOpts.obj CopyFmt.obj findapp.obj CompOutput.obj pydataconv.obj \
+pywrappers.obj IRCInput.obj irc.obj scorebot.obj BroadcastFmt.obj \
+ScorebotInput.obj ircbase.obj ChannelInput.obj pygamequery.obj pyscorebot.obj
+
+WRAPTEST = pyemb.obj pydataconv.obj pywrappers.obj ircbase.obj
+
+fragmon: $(OBJ)
+	$(LD) $(XTRA) $(LDFLAGS) /OUT:fragmon.exe $(OBJ) 
+
+wraptest: $(WRAPTEST)
+	$(LD) $(XTRA) $(LDFLAGS) /dll /OUT:pywrappers.pyd $(WRAPTEST)
+
+%.obj: %.cpp
+	$(CPP) $(XTRA) $(CFLAGS) $< 
+
+%.RES: %.rc
+	$(RC) $(XTRA) $< 
+
+clean:
+	echo $(XTRA)
+	rm -f *.exe *.obj *.res *.exp *.dll *.pdb *.ilk *.RES
+	rm -rf ../fragmon-rel
+
+helpfile:
+	cd doc && $(MAKE)
+
+release: fragmon helpfile
+	sh $(MKRELEASE)

@@ -1,0 +1,195 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=iso-8859-1">
+	<TITLE>Fragmon Python Module</TITLE>
+	<META NAME="GENERATOR" CONTENT="OpenOffice.org 1.1.3  (Linux)">
+	<META NAME="CREATED" CONTENT="20060324;15241400">
+	<META NAME="CHANGED" CONTENT="20060324;16143600">
+</HEAD>
+<BODY LANG="en-US" DIR="LTR">
+<P ALIGN=CENTER><FONT SIZE=5><B>Fragmon Python Module</B></FONT></P>
+<P ALIGN=CENTER><BR><BR>
+</P>
+<P ALIGN=LEFT><FONT SIZE=4><B>Constants</B></FONT></P>
+<TABLE WIDTH=100% BORDER=1 CELLPADDING=4 CELLSPACING=3>
+	<COL WIDTH=38*>
+	<COL WIDTH=38*>
+	<COL WIDTH=179*>
+	<THEAD>
+		<TR VALIGN=TOP>
+			<TH WIDTH=15%>
+				<P>Name</P>
+			</TH>
+			<TH WIDTH=15%>
+				<P>Type</P>
+			</TH>
+			<TH WIDTH=70%>
+				<P>Description</P>
+			</TH>
+		</TR>
+	</THEAD>
+	<TBODY>
+		<TR VALIGN=TOP>
+			<TD WIDTH=15%>
+				<P ALIGN=LEFT>APPNAME</P>
+			</TD>
+			<TD WIDTH=15%>
+				<P ALIGN=LEFT>string</P>
+			</TD>
+			<TD WIDTH=70%>
+				<P ALIGN=LEFT>Application name. Most likely &ldquo;Fragmon&rdquo;</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=15%>
+				<P ALIGN=LEFT>VERSION</P>
+			</TD>
+			<TD WIDTH=15%>
+				<P ALIGN=LEFT>string</P>
+			</TD>
+			<TD WIDTH=70%>
+				<P ALIGN=LEFT>Version of Fragmon.</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=15%>
+				<P ALIGN=LEFT>WEBSITE</P>
+			</TD>
+			<TD WIDTH=15%>
+				<P ALIGN=LEFT>string</P>
+			</TD>
+			<TD WIDTH=70%>
+				<P ALIGN=LEFT>Address of Fragmon website.</P>
+			</TD>
+		</TR>
+	</TBODY>
+</TABLE>
+<P ALIGN=LEFT><BR><BR>
+</P>
+<P ALIGN=LEFT><FONT SIZE=4><B>Functions</B></FONT></P>
+<TABLE WIDTH=100% BORDER=1 CELLPADDING=4 CELLSPACING=3>
+	<COL WIDTH=64*>
+	<COL WIDTH=38*>
+	<COL WIDTH=154*>
+	<THEAD>
+		<TR VALIGN=TOP>
+			<TH WIDTH=25%>
+				<P>Name</P>
+			</TH>
+			<TH WIDTH=15%>
+				<P>Return Value</P>
+			</TH>
+			<TH WIDTH=60%>
+				<P>Description</P>
+			</TH>
+		</TR>
+	</THEAD>
+	<TBODY>
+		<TR VALIGN=TOP>
+			<TD WIDTH=25%>
+				<P ALIGN=LEFT>debug_msg(text)</P>
+			</TD>
+			<TD WIDTH=15%>
+				<P ALIGN=LEFT>None</P>
+			</TD>
+			<TD WIDTH=60%>
+				<P ALIGN=LEFT>Print text to the debug window</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=25%>
+				<P ALIGN=LEFT>register_query(name, abbrev, port, over_cb,    
+				all_cb, exec_order, exec_conn, exec_pass, exec_name)</P>
+			</TD>
+			<TD WIDTH=15%>
+				<P ALIGN=LEFT>None</P>
+			</TD>
+			<TD WIDTH=60%>
+				<P ALIGN=LEFT>Register a query function. The exec_* parameters
+				are optional.</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=25%>
+				<P ALIGN=LEFT>register_scorebot(bot_class)</P>
+			</TD>
+			<TD WIDTH=15%>
+				<P ALIGN=LEFT>None</P>
+			</TD>
+			<TD WIDTH=60%>
+				<P ALIGN=LEFT>Register a <A HREF="scorebot.html">custom scorebot</A></P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=25%>
+				<P ALIGN=LEFT>get_millis()</P>
+			</TD>
+			<TD WIDTH=15%>
+				<P ALIGN=LEFT>integer</P>
+			</TD>
+			<TD WIDTH=60%>
+				<P ALIGN=LEFT>Returns current time in milliseconds</P>
+			</TD>
+		</TR>
+	</TBODY>
+</TABLE>
+<P ALIGN=LEFT><BR><BR>
+</P>
+<P ALIGN=LEFT><FONT SIZE=4><B>Types</B></FONT></P>
+<TABLE WIDTH=100% BORDER=1 CELLPADDING=4 CELLSPACING=3>
+	<COL WIDTH=38*>
+	<COL WIDTH=218*>
+	<THEAD>
+		<TR VALIGN=TOP>
+			<TH WIDTH=15%>
+				<P>Name</P>
+			</TH>
+			<TH WIDTH=85%>
+				<P>Description</P>
+			</TH>
+		</TR>
+	</THEAD>
+	<TBODY>
+		<TR VALIGN=TOP>
+			<TD WIDTH=15%>
+				<P ALIGN=LEFT><A HREF="gamedata.html#overview">Overview</A></P>
+			</TD>
+			<TD WIDTH=85%>
+				<P ALIGN=LEFT>Overview game data structure</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=15%>
+				<P ALIGN=LEFT><A HREF="gamedata.html#player">Player</A></P>
+			</TD>
+			<TD WIDTH=85%>
+				<P ALIGN=LEFT>Player game data structure</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=15%>
+				<P ALIGN=LEFT><A HREF="gamedata.html#rule">Rule</A></P>
+			</TD>
+			<TD WIDTH=85%>
+				<P ALIGN=LEFT>Rule game data structure</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=15%>
+				<P ALIGN=LEFT><A HREF="scorebot.html">ScoreBot</A></P>
+			</TD>
+			<TD WIDTH=85%>
+				<P ALIGN=LEFT>Base class for custom scorebots</P>
+			</TD>
+		</TR>
+	</TBODY>
+</TABLE>
+<P ALIGN=LEFT><BR><BR>
+</P>
+<P ALIGN=LEFT><BR><BR>
+</P>
+<P ALIGN=LEFT><BR><BR>
+</P>
+</BODY>
+</HTML>

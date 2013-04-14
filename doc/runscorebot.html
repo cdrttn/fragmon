@@ -1,0 +1,64 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=iso-8859-1">
+	<TITLE>Fragmon Scorebot</TITLE>
+	<META NAME="GENERATOR" CONTENT="OpenOffice.org 1.1.3  (Linux)">
+	<META NAME="CREATED" CONTENT="20060323;17511400">
+	<META NAME="CHANGED" CONTENT="20060323;18273400">
+</HEAD>
+<BODY LANG="en-US" DIR="LTR">
+<P ALIGN=CENTER><FONT SIZE=5><B>Running a Scorebot</B></FONT></P>
+<P ALIGN=LEFT><BR><BR>
+</P>
+<OL>
+	<LI><P ALIGN=LEFT><FONT SIZE=4><B>Set Broadcast Format</B></FONT></P>
+	<P ALIGN=LEFT><IMG SRC="bcfmt.png" NAME="Graphic1" ALIGN=BOTTOM WIDTH=671 HEIGHT=470 BORDER=0></P>
+	<P ALIGN=LEFT STYLE="font-weight: medium"><FONT SIZE=4>In the Game
+	-&gt; Options... -&gt; Broadcast Format panel, adjust the format
+	string to your liking. You can adjust this format at any time, even
+	during broadcast.</FONT></P>
+	<LI><P><FONT SIZE=4><B>Connect to IRC</B></FONT></P>
+	<P><IMG SRC="irc.png" NAME="Graphic2" ALIGN=BOTTOM WIDTH=543 HEIGHT=305 BORDER=0></P>
+	<P STYLE="font-weight: medium"><FONT SIZE=4>Click IRC -&gt;
+	Connect... and fill in the values. </FONT>
+	</P>
+	<LI><P><FONT SIZE=4><B>Configure Scorebot</B></FONT></P>
+	<P><IMG SRC="bot.png" NAME="Graphic3" ALIGN=BOTTOM WIDTH=705 HEIGHT=394 BORDER=0></P>
+	<P STYLE="font-weight: medium"><FONT SIZE=4>First, select or enter a
+	server in the <A HREF="fragmon-view.html#queryinfo">server input
+	area</A> and click IRC-&gt;Broadcast-&gt;Configure... The selected
+	server will appear in the scorebot dialog. To change the server,
+	select a different server from the server input and reopen the
+	scorebot dialog. Input desired values for the event title and
+	broadcast interval (don't set this too low!), and select a channel
+	from the drop down list. Click the button next to the list to join
+	or part channels.</FONT></P>
+	<P STYLE="font-weight: medium"><IMG SRC="custom.png" NAME="Graphic4" ALIGN=BOTTOM WIDTH=700 HEIGHT=385 BORDER=0></P>
+	<P STYLE="font-weight: medium"><FONT SIZE=4>You can also select and
+	configure a <A HREF="scorebot.html">custom scorebot</A> implemented
+	in Python from this dialog. A custom scorebot may add format
+	specifiers to the broadcast format, change the output style, and
+	other things. If the custom scorebot has any user configurable
+	options, they will appear in the Extended Options list. Double click
+	an item to set its value. You may input any text for an extended
+	option; however, the custom scorebot may display an error if the
+	text entered is not in the expected format. Read the scorebot's
+	documentation or source code to learn what values it accepts.</FONT></P>
+	<P STYLE="font-weight: medium"><FONT SIZE=4>Click OK when you're
+	done. You can revisit the configuration dialog at any time, even
+	after the bot has started broadcasting. However, loading the dialog
+	during broadcast disables the selection of custom scorebots; the
+	current bot in use may only be configured.</FONT></P>
+	<LI><P><FONT SIZE=4><B>Start broadcasting</B></FONT></P>
+	<P><SPAN STYLE="font-weight: medium"><FONT SIZE=4>Click
+	IRC-&gt;Broadcast-&gt;Start to start broadcasting using the
+	configured interval, and IRC-&gt;Broadcast-&gt;Stop to stop. After
+	broadcasting has started you may not change the game server you
+	configured earlier until the bot is stopped again. The
+	IRC-&gt;Broadcast menu also has some other functions, such as Pulse,
+	which instructs the scorebot to broadcast once, and Print Players,
+	which instructs the bot to print a list of players on each team.</FONT></SPAN></P>
+</OL>
+</BODY>
+</HTML>

@@ -1,0 +1,347 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=iso-8859-1">
+	<TITLE>Fragmon Custom Scorebot</TITLE>
+	<META NAME="GENERATOR" CONTENT="OpenOffice.org 1.1.3  (Linux)">
+	<META NAME="CREATED" CONTENT="20060323;383600">
+	<META NAME="CHANGED" CONTENT="20060324;15455400">
+</HEAD>
+<BODY LANG="en-US" DIR="LTR">
+<P ALIGN=CENTER><FONT SIZE=5><B>ScoreBot Type</B></FONT></P>
+<P ALIGN=LEFT>The ScoreBot object, like the <A HREF="gamedata.html">game
+data structures</A>, is a Python type residing in the fragmon module.
+The ScoreBot type is a base class that allows the user to easily
+extend the functionality of Fragmon's crude scorebot. Simply subclass
+ScoreBot and implement some or all of its methods. See the
+gamequery/query_scorebot.py module for an example implementation.</P>
+<P ALIGN=LEFT><BR><BR>
+</P>
+<P ALIGN=LEFT><FONT SIZE=4><B>Members</B></FONT></P>
+<P ALIGN=LEFT>These members are inherited by custom scorebots. Note
+that most mutable variables are updated before each broadcast; format
+is updated with the current format from the user's configuration, and
+the competition data (title, name*, score*, time) is copied from the
+user-editable competition section of the Fragmon window. Changes to
+most variables should be made in the broadcast() method before
+calling sub_format(). 
+</P>
+<TABLE WIDTH=100% BORDER=1 CELLPADDING=4 CELLSPACING=3>
+	<COL WIDTH=38*>
+	<COL WIDTH=38*>
+	<COL WIDTH=179*>
+	<THEAD>
+		<TR VALIGN=TOP>
+			<TH WIDTH=15%>
+				<P>Name</P>
+			</TH>
+			<TH WIDTH=15%>
+				<P>Type</P>
+			</TH>
+			<TH WIDTH=70%>
+				<P>Description</P>
+			</TH>
+		</TR>
+	</THEAD>
+	<TBODY>
+		<TR VALIGN=TOP>
+			<TD WIDTH=15%>
+				<P ALIGN=LEFT>host</P>
+			</TD>
+			<TD WIDTH=15%>
+				<P ALIGN=LEFT>string</P>
+			</TD>
+			<TD WIDTH=70%>
+				<P ALIGN=LEFT>Address of the server (immutable)</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=15%>
+				<P ALIGN=LEFT>port</P>
+			</TD>
+			<TD WIDTH=15%>
+				<P ALIGN=LEFT>integer</P>
+			</TD>
+			<TD WIDTH=70%>
+				<P ALIGN=LEFT>Port of the server (immutable)</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=15%>
+				<P ALIGN=LEFT>game</P>
+			</TD>
+			<TD WIDTH=15%>
+				<P ALIGN=LEFT>string</P>
+			</TD>
+			<TD WIDTH=70%>
+				<P ALIGN=LEFT>Abbreviation of the game type Q3, Q4, ut2k3, etc.
+				(immutable)</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=15%>
+				<P ALIGN=LEFT>running</P>
+			</TD>
+			<TD WIDTH=15%>
+				<P ALIGN=LEFT>boolean</P>
+			</TD>
+			<TD WIDTH=70%>
+				<P ALIGN=LEFT>Is the bot currently running? (immutable)</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=15%>
+				<P ALIGN=LEFT>format</P>
+			</TD>
+			<TD WIDTH=15%>
+				<P ALIGN=LEFT>string</P>
+			</TD>
+			<TD WIDTH=70%>
+				<P ALIGN=LEFT>The format string used by the sub_format() method</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=15%>
+				<P ALIGN=LEFT>channel</P>
+			</TD>
+			<TD WIDTH=15%>
+				<P ALIGN=LEFT>string</P>
+			</TD>
+			<TD WIDTH=70%>
+				<P ALIGN=LEFT>The output channel</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=15%>
+				<P ALIGN=LEFT>interval</P>
+			</TD>
+			<TD WIDTH=15%>
+				<P ALIGN=LEFT>integer</P>
+			</TD>
+			<TD WIDTH=70%>
+				<P ALIGN=LEFT>The broadcast interval in seconds (immutable)</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=15%>
+				<P ALIGN=LEFT>title</P>
+			</TD>
+			<TD WIDTH=15%>
+				<P ALIGN=LEFT>string</P>
+			</TD>
+			<TD WIDTH=70%>
+				<P ALIGN=LEFT>The name/description of the competition</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=15%>
+				<P ALIGN=LEFT>name_a</P>
+			</TD>
+			<TD WIDTH=15%>
+				<P ALIGN=LEFT>string</P>
+			</TD>
+			<TD WIDTH=70%>
+				<P ALIGN=LEFT>Name of the first competitor</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=15%>
+				<P ALIGN=LEFT>name_b</P>
+			</TD>
+			<TD WIDTH=15%>
+				<P ALIGN=LEFT>string</P>
+			</TD>
+			<TD WIDTH=70%>
+				<P ALIGN=LEFT>Name of the second competitor</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=15%>
+				<P ALIGN=LEFT>score_a</P>
+			</TD>
+			<TD WIDTH=15%>
+				<P ALIGN=LEFT>string</P>
+			</TD>
+			<TD WIDTH=70%>
+				<P ALIGN=LEFT>Score of the first competitor</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=15%>
+				<P ALIGN=LEFT>score_b</P>
+			</TD>
+			<TD WIDTH=15%>
+				<P ALIGN=LEFT>string</P>
+			</TD>
+			<TD WIDTH=70%>
+				<P ALIGN=LEFT>Score of the second competitor</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=15%>
+				<P ALIGN=LEFT>time</P>
+			</TD>
+			<TD WIDTH=15%>
+				<P ALIGN=LEFT>string</P>
+			</TD>
+			<TD WIDTH=70%>
+				<P ALIGN=LEFT>The current time of the game</P>
+			</TD>
+		</TR>
+	</TBODY>
+</TABLE>
+<P ALIGN=LEFT><BR><BR>
+</P>
+<P ALIGN=LEFT><FONT SIZE=4><B>Methods</B></FONT></P>
+<P ALIGN=LEFT STYLE="font-weight: medium"><FONT SIZE=3>Methods
+inherited by custom scorebots. Methods tagged Virtual can be
+overridden by Python code. See query_scorebot.py for an example
+implementing many of these methods.</FONT></P>
+<TABLE WIDTH=100% BORDER=1 CELLPADDING=4 CELLSPACING=3>
+	<COL WIDTH=38*>
+	<COL WIDTH=38*>
+	<COL WIDTH=179*>
+	<THEAD>
+		<TR VALIGN=TOP>
+			<TH WIDTH=15%>
+				<P>Name</P>
+			</TH>
+			<TH WIDTH=15%>
+				<P>Return Value</P>
+			</TH>
+			<TH WIDTH=70%>
+				<P>Description</P>
+			</TH>
+		</TR>
+	</THEAD>
+	<TBODY>
+		<TR VALIGN=TOP>
+			<TD WIDTH=15%>
+				<P ALIGN=LEFT>broadcast()</P>
+			</TD>
+			<TD WIDTH=15%>
+				<P ALIGN=LEFT>None</P>
+			</TD>
+			<TD WIDTH=70%>
+				<P ALIGN=LEFT>(Virtual) Override this method to change the
+				broadcasting behavior. The default behavior is to call
+				sub_format() and dump the output to the channel configured by the
+				user.</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=15%>
+				<P ALIGN=LEFT>broadcast_players()</P>
+			</TD>
+			<TD WIDTH=15%>
+				<P ALIGN=LEFT>None</P>
+			</TD>
+			<TD WIDTH=70%>
+				<P ALIGN=LEFT>(Virtual) Called when the Fragmon user presses
+				CTRL-L or clicks Print Players. Override this method to change
+				the broadcasting behavior. The default behavior is to simply
+				print the players on each team, one line per team.</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=15%>
+				<P ALIGN=LEFT>__cleanup__()</P>
+			</TD>
+			<TD WIDTH=15%>
+				<P ALIGN=LEFT>None</P>
+			</TD>
+			<TD WIDTH=70%>
+				<P ALIGN=LEFT>(Virtual) Called by Fragmon before destroying the
+				bot's base object. See query_scorebot.py for an example
+				implementation.</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=15%>
+				<P ALIGN=LEFT>get_overview()</P>
+			</TD>
+			<TD WIDTH=15%>
+				<P ALIGN=LEFT><A HREF="gamedata.html#overview">Overview</A>
+				object</P>
+			</TD>
+			<TD WIDTH=70%>
+				<P ALIGN=LEFT>Gets a copy of the <A HREF="gamedata.html#overview">Overview</A>
+				object from the last query made.</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=15%>
+				<P ALIGN=LEFT>get_players() 
+				</P>
+			</TD>
+			<TD WIDTH=15%>
+				<P ALIGN=LEFT>List of <A HREF="gamedata.html#player">Player</A>
+				objects</P>
+			</TD>
+			<TD WIDTH=70%>
+				<P ALIGN=LEFT>Gets a copy of the list of <A HREF="gamedata.html#player">Player</A>
+				objects from the last query made.</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=15%>
+				<P ALIGN=LEFT>get_rules()</P>
+			</TD>
+			<TD WIDTH=15%>
+				<P ALIGN=LEFT>List of <A HREF="gamedata.html#rule">Rule</A>
+				objects</P>
+			</TD>
+			<TD WIDTH=70%>
+				<P ALIGN=LEFT>Gets a copy of the list of <A HREF="gamedata.html#rule">Rule</A>
+				objects from the last query made.</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=15%>
+				<P ALIGN=LEFT>sub_format(fmt, vars) 
+				</P>
+			</TD>
+			<TD WIDTH=15%>
+				<P ALIGN=LEFT>string</P>
+			</TD>
+			<TD WIDTH=70%>
+				<P ALIGN=LEFT>Method takes an optional format string as the first
+				argument and a list of variables to add to the basic format
+				specifiers. Both arguments are optional. By default, it uses the
+				format member if the fmt argument is not supplied. Returns a
+				string with all variables substituted. See query_scorebot.py for
+				example usage.</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=15%>
+				<P ALIGN=LEFT>get_option(key) 
+				</P>
+			</TD>
+			<TD WIDTH=15%>
+				<P ALIGN=LEFT>string</P>
+			</TD>
+			<TD WIDTH=70%>
+				<P ALIGN=LEFT>(Virtual) get value for key. See query_scorebot.py
+				for an example.</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=15%>
+				<P ALIGN=LEFT>set_option(key, value)</P>
+			</TD>
+			<TD WIDTH=15%>
+				<P ALIGN=LEFT>string or None</P>
+			</TD>
+			<TD WIDTH=70%>
+				<P ALIGN=LEFT>(Virtual) set value for key, optionally returning a
+				string error message if the value is invalid. See
+				query_scorebot.py for an example.</P>
+			</TD>
+		</TR>
+	</TBODY>
+</TABLE>
+<P ALIGN=LEFT><BR><BR>
+</P>
+</BODY>
+</HTML>
